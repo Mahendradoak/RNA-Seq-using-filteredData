@@ -19,40 +19,43 @@ Differential expression analysis
 The workflow is optimized to run on personal computers with modest specifications (~8–16 GB RAM, 4–8 CPU cores).
 
 📂 Dataset
+
 The dataset consists of ~2,700 PBMCs, processed using 10x Genomics' Cell Ranger pipeline. It includes filtered feature-barcode matrices and can be downloaded from:
-👉 Figshare Dataset Link
+
+👉 https://figshare.com/articles/dataset/3k_PBMCs_from_a_healthy_donor/28414916
 
 Expected directory structure after download:
 
-cpp
-Copy
-Edit
 RNA-Seq-using-filteredData/
+
 ├── 28414916/
+
 │   └── filtered_feature_bc_matrix/
+
 ├── pbmc_analysis.R
+
 └── README.md
+
 🔧 Prerequisites
+
 📦 R Environment
 R version 4.0 or higher
 
 📚 Required R Packages
+
 Install the required packages using the commands below:
 
-r
-Copy
-Edit
 install.packages(c("Seurat", "ggplot2", "patchwork"))
 install.packages("BiocManager")
 BiocManager::install(c("DoubletFinder", "SingleR", "celldex"))
 🚀 Installation & Setup
 Clone the repository:
 
-bash
-Copy
-Edit
+
 git clone https://github.com/your-username/RNA-Seq-using-filteredData.git
+
 cd RNA-Seq-using-filteredData
+
 Download the dataset:
 
 Go to Figshare
@@ -66,16 +69,13 @@ Open pbmc_analysis.R in R or RStudio
 
 Update the path to the dataset in the Read10X function if needed:
 
-r
-Copy
-Edit
+
 pbmc.data <- Read10X(data.dir = "28414916/filtered_feature_bc_matrix")
 Run the script:
 
-r
-Copy
-Edit
+
 source("pbmc_analysis.R")
+
 📈 Output
 The script will generate:
 
@@ -86,6 +86,7 @@ Cluster annotation results
 Differential expression results
 
 🧬 Tools Used
+
 Seurat
 
 DoubletFinder
@@ -95,4 +96,5 @@ SingleR
 celldex
 
 📫 Contact
+
 For questions or suggestions, feel free to open an issue or reach out via GitHub.
