@@ -1,20 +1,92 @@
 # RNA-Seq-using-filteredData
-Overview
-This repository contains an R script for single-cell RNA-seq (scRNA-seq) analysis of the 3k PBMC dataset from a healthy donor, sourced from Figshare (https://figshare.com/articles/dataset/3k_PBMCs_from_a_healthy_donor/28414916). The pipeline uses Seurat to process ~2,700 cells, performing quality control, clustering, cell type annotation, and differential expression analysis. The code is optimized to run on a personal computer (PC) with limited resources (~8-16 GB RAM, 4-8 cores).
+📘 Overview
+This repository contains an R script for single-cell RNA-seq (scRNA-seq) analysis using the 3k Peripheral Blood Mononuclear Cell (PBMC) dataset from a healthy donor. The dataset is publicly available via Figshare.
 
-Dataset
-The dataset is a preprocessed 10x Genomics dataset of Peripheral Blood Mononuclear Cells (PBMCs) with ~2,700 cells, available at the link above. It includes filtered feature-barcode matrices (filtered_feature_bc_matrix).
+The analysis pipeline is built using the Seurat framework and performs:
 
-Prerequisites
-R: Version 4.0 or higher
+Quality control
 
-R Packages:
+Normalization
 
-Seurat (>= 4.0)
+Dimensionality reduction
 
-ggplot2
+Clustering
 
-patchwork
+Cell type annotation
+
+Differential expression analysis
+
+The workflow is optimized to run on personal computers with modest specifications (~8–16 GB RAM, 4–8 CPU cores).
+
+📂 Dataset
+The dataset consists of ~2,700 PBMCs, processed using 10x Genomics' Cell Ranger pipeline. It includes filtered feature-barcode matrices and can be downloaded from:
+👉 Figshare Dataset Link
+
+Expected directory structure after download:
+
+cpp
+Copy
+Edit
+RNA-Seq-using-filteredData/
+├── 28414916/
+│   └── filtered_feature_bc_matrix/
+├── pbmc_analysis.R
+└── README.md
+🔧 Prerequisites
+📦 R Environment
+R version 4.0 or higher
+
+📚 Required R Packages
+Install the required packages using the commands below:
+
+r
+Copy
+Edit
+install.packages(c("Seurat", "ggplot2", "patchwork"))
+install.packages("BiocManager")
+BiocManager::install(c("DoubletFinder", "SingleR", "celldex"))
+🚀 Installation & Setup
+Clone the repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/RNA-Seq-using-filteredData.git
+cd RNA-Seq-using-filteredData
+Download the dataset:
+
+Go to Figshare
+
+Download and extract the filtered_feature_bc_matrix folder
+
+Place it inside the 28414916/ directory in the repo
+
+▶️ Usage
+Open pbmc_analysis.R in R or RStudio
+
+Update the path to the dataset in the Read10X function if needed:
+
+r
+Copy
+Edit
+pbmc.data <- Read10X(data.dir = "28414916/filtered_feature_bc_matrix")
+Run the script:
+
+r
+Copy
+Edit
+source("pbmc_analysis.R")
+📈 Output
+The script will generate:
+
+UMAP plots for visualizing cell clusters (umap_clusters.png, umap_celltypes.png)
+
+Cluster annotation results
+
+Differential expression results
+
+🧬 Tools Used
+Seurat
 
 DoubletFinder
 
@@ -22,39 +94,5 @@ SingleR
 
 celldex
 
-Install the packages using:
-
-R
-
-
-install.packages(c("Seurat", "ggplot2", "patchwork"))
-install.packages("BiocManager")
-BiocManager::install(c("DoubletFinder", "SingleR", "celldex"))
-Installation
-Clone this repository to your local machine:
-
-bash
-
-
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
-Download the 3k PBMC dataset from Figshare and place the filtered_feature_bc_matrix folder in the 28414916/ directory within the repository.
-
-Usage
-Open the R script pbmc_analysis.R in R or RStudio.
-
-Update the path in the Read10X function to point to the filtered_feature_bc_matrix directory:
-
-R
-
-
-pbmc.data <- Read10X(data.dir = "28414916/filtered_feature_bc_matrix")
-Run the script:
-
-R
-
-
-source("pbmc_analysis.R")
-The script will generate:
-
-UMAP plots (umap_clusters.png, `umap_cell
+📫 Contact
+For questions or suggestions, feel free to open an issue or reach out via GitHub.
