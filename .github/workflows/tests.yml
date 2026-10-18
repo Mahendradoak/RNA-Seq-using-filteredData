@@ -10,5 +10,6 @@ jobs:
           use-public-rspm: true
       - run: |
           Rscript -e 'install.packages(c("Seurat","ggplot2","jsonlite","testthat","withr","remotes","fields","KernSmooth","ROCR"))'
-          Rscript -e 'remotes::install_github("chris-mcginnis-ucsf/DoubletFinder", upgrade = "never")'
+          git clone --depth 1 https://github.com/chris-mcginnis-ucsf/DoubletFinder /tmp/DoubletFinder
+          R CMD INSTALL /tmp/DoubletFinder
       - run: Rscript tests/testthat.R
