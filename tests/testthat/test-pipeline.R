@@ -6,7 +6,7 @@ source(file.path(root, "run_pipeline.R"))
 write_10x <- function(dir, n_per = 150, seed = 1) {
   set.seed(seed)
   types <- list(T = c("CD3D", "IL7R", "CCR7", "LEF1", "CD8A", "CD8B"), B = c("MS4A1", "CD79A", "CD79B"),
-                Mono = c("CD14", "LYZ", "S100A8", "CST3"))
+                Mono = c("CD14", "LYZ", "S100A8"))
   genes <- c(unique(unlist(types)), paste0("MT-CO", 1:3), sprintf("GENE%04d", 1:1200))
   cells <- list()
   for (t in names(types)) {

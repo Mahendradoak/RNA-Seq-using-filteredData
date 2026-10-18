@@ -34,7 +34,7 @@ Rscript tests/testthat.R      # 9 expectations on a synthetic 10x dataset
 
 ## Results (`results_from_saved_counts/`, real data)
 
-The pipeline was run from the counts stored in `pbmc_processed.rds`: 2,483 cells, which had already been through QC and the original doublet removal.
+The pipeline was run (Seurat 5.0.1) from the counts stored in `pbmc_processed.rds`: 2,483 cells, which had already been through QC and the original doublet removal. Cluster numbers and margins can shift slightly with other Seurat versions.
 
 | Cluster | Cell type | Cells | Marker margin |
 |---|---|---|---|
