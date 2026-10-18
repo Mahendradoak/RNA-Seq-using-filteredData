@@ -1,0 +1,9 @@
+"cluster","celltype","margin","n_cells"
+"0","Naive CD4 T",0.1,546
+"1","Memory CD4 T",0.472,504
+"2","CD14 Mono",1.578,456
+"3","B",1.878,335
+"4","CD8 T",0.008,318
+"5","FCGR3A Mono",1.232,166
+"6","NK",2.378,141
+"7","Platelet",3.975,17
