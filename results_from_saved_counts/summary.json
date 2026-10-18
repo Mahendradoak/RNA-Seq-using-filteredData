@@ -1,0 +1,17 @@
+{
+  "note": "started from saved counts; QC and doublet removal were applied upstream",
+  "cells_analysed": 2483,
+  "tcell_subclusters": 4,
+  "clusters": 8,
+  "celltype_counts": {
+    "B": 335,
+    "CD14 Mono": 456,
+    "CD8 T": 318,
+    "FCGR3A Mono": 166,
+    "Memory CD4 T": 504,
+    "NK": 141,
+    "Naive CD4 T": 546,
+    "Platelet": 17
+  },
+  "ambiguous_clusters": "4"
+}

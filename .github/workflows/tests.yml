@@ -1,0 +1,16 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - run: sudo apt-get update && sudo apt-get install -y libglpk40   # igraph (Seurat dependency) needs GLPK
+      - run: |
+          Rscript -e 'install.packages(c("Seurat","ggplot2","jsonlite","testthat","withr","remotes","fields","KernSmooth","ROCR"))'
+          git clone --depth 1 https://github.com/chris-mcginnis-ucsf/DoubletFinder /tmp/DoubletFinder
+          R CMD INSTALL /tmp/DoubletFinder
+      - run: Rscript tests/testthat.R
